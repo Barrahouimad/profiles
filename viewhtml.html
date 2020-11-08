@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        
+        <title>assignement imad barrahou</title>
+        
+       
+    </head>
+
+    <body>
+<p>
+    <?php
+    try
+    {
+        // On se connecte à MySQL
+        $bdd = new PDO('mysql:host=localhost;dbname=test;charset=utf8', 'root', '');
+    }
+    catch(Exception $e)
+    {
+        // En cas d'erreur, on affiche un message et on arrête tout
+            die('Erreur : '.$e->getMessage());
+    }
+    
+    // Si tout va bien, on peut continuer
+    
+    // On récupère tout le contenu de la table jeux_video
+    $reponse = $bdd->query('SELECT * FROM profile;');
+    
+    // On affiche chaque entrée une à une
+    while ($donnees = $reponse->fetch())
+    {?>
+    
+     <p> profile id : <?php echo   $donnees['profile_id'];?> <br> le user id : <?php echo   $donnees['user_id'];?><br> le first name :<?php echo   $donnees['first_name'];?><br>
+        laste name : <?php echo   $donnees['last_name'];?><br>  email : <?php echo   $donnees['email'];?> <br> headline  :<?php echo   $donnees['headline'];?><br>
+        summary  : <?php echo   $donnees['summary'];?>
+     </p>
+       
+    <?php }
+    
+    $reponse->closeCursor(); // Termine le traitement de la requête
+    
+    ?>
+
+
+
+</p>
+
+    </body>
+</html>

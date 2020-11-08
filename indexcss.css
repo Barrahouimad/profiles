@@ -1,0 +1,19 @@
+#down{
+    background-image: url(back4.JPG);
+}
+
+
+#table
+{
+ margin-top:70px;
+ margin-left:50px;
+ font-size :40px;
+}
+
+Navbar{
+   border:1px solid orchid;
+   background-color: orchid;
+   opacity: 0.5; 
+  display:flex;
+  justify-content: space-between; 
+}
